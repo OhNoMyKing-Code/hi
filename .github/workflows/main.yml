@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   lichess-bot:
-    name: Run AlPhAbEtACeta
+    name: Run EliteV-Fan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +33,7 @@ jobs:
         run: python -u user_interface.py --matchmaking
 
   bullet-bot:
-    name: Run LeoMessi-bot
+    name: Run M0E7GR77
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -44,4 +44,4 @@ jobs:
       - name: Stockfish
         run: chmod +x ./engines/stockfish
       - name: Running bot
-        run: python -u user_interface.py --matchmaking
+        run: python -u user_interface.py --upgrade
