@@ -8,9 +8,9 @@ engines:
     silence_stderr: false
     move_overhead_multiplier: 5.0
     uci_options:
-      Threads: 1
-      Hash: 1
-      Move Overhead: 5000
+      Threads: 8
+      Hash: 5000
+      Move Overhead: 250
   blitz:
     dir: "./engines"
     name: "stockfish"
@@ -18,9 +18,9 @@ engines:
     silence_stderr: false
     move_overhead_multiplier: 5.0
     uci_options:
-      Threads: 1
-      Hash: 1
-      Move Overhead: 5000
+      Threads: 8
+      Hash: 5000
+      Move Overhead: 250
   chess960:
     dir: "./engines"
     name: "stockfish"
@@ -28,9 +28,9 @@ engines:
     silence_stderr: false
     move_overhead_multiplier: 5.0
     uci_options:
-      Threads: 1
-      Hash: 1
-      Move Overhead: 5000
+      Threads: 8
+      Hash: 5000
+      Move Overhead: 250
 # variants:                               # Engine used for variants when no suitable special engine is configured.
 #   dir: "./engines"                      # Directory containing the engine.
 #   name: "fairy-stockfish"               # Binary name of the engine to use.
@@ -88,7 +88,7 @@ opening_books:
       selection: best_move          # Move selection is one of "weighted_random", "uniform_random" or "best_move".
 #     max_depth: 16                       # Half move max depth. (Comment this line for max depth)
       names:                              # List of names of books to use if there is no specific book for the time control, white, black or chess960.
-       - titans
+@       - titans
        
        
        
@@ -112,7 +112,7 @@ online_moves:
     max_depth: 20                         # Half move max depth. (Comment this line for max depth)
 #   max_moves: 1                          # Max number of moves played from Lichess opening explorer. (Comment this line for max moves)
   lichess_cloud:
-    enabled: true                         # Activate online moves from Lichess cloud eval.
+    enabled: false                         # Activate online moves from Lichess cloud eval.
     priority: 200                         # Priority with which this move source is used. Higher priority is used first.
     only_without_book: false              # Whether the cloud should only be used if there is no matching book.
     min_eval_depth: 20                    # Minimum evaluation depth.
@@ -169,17 +169,17 @@ challenge:                                # Incoming challenges. (Commenting all
   time_controls:                          # Speeds or time controls in initial_minutes+increment_seconds format to accept.
   
    - bullet
-   - blitz
-   - rapid
-   - classical
-   - 25+0
+#   - blitz
+#   - rapid
+#   - classical
+#   - 25+0
   bot_modes:                              # Game modes to accept against BOTs.                              # Unrated games.
     - rated                               # Rated games
   human_modes:                            # Game modes to accept against humans.                              # Unrated games.
     - rated                               # Rated games
 
 matchmaking:
-  delay: 120                              # Time in seconds the bot must be idle before a new challenge is started.
+  delay: 60                              # Time in seconds the bot must be idle before a new challenge is started.
   timeout: 30                             # Time until a challenge is canceled.
   selection: cyclic                       # Matchmkaing type selection is one of "weighted_random", "sequential" or "cyclic".
   types:                                  # Matchmaking types of which one is selected before each game.
@@ -227,3 +227,4 @@ messages:
 books:                                    # Names of the opening books (to be used above in the opening_books section) and paths to the opening books.
   titans: "engines/Titans.bin"
   
+
