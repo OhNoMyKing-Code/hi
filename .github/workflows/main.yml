@@ -35,8 +35,8 @@ jobs:
           mv engines/stockfish_* engines/stockfish
           chmod +x engines/stockfish
       - name: Running bot
-        run: python -u user_interface.py "matchmaking"
-
+        run: python -u user_interface.py --matchmaking
+        
   bullet-bot:
     name: Run M0E7GR77
     runs-on: ubuntu-latest
@@ -54,4 +54,4 @@ jobs:
           mv engines/stockfish_* engines/stockfish
           chmod +x engines/stockfish
       - name: Running bot
-        run: python -u user_interface.py "matchmaking"
+        run: python -u user_interface.py --matchmaking
